@@ -10,7 +10,7 @@
   background-image: url(../hwImg/bkc1.jpg);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: contain;
+  background-size: cover;
   padding-top: 80px;
 }
 #app .outSizeBorder {
