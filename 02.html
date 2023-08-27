@@ -4,13 +4,14 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 	<link rel="stylesheet" href="./hwScss/02.css">
 	<title>Document</title>
 </head>
 <body>
 	
 	<div id="app">
-		<div class="outSizeBorder" @mousedown.left="moveSide()">
+		<div class="outSizeBorder" @mousedown.left="moveSide()" v-if="showTable">
 			<div class="menuuSide">
 				<div v-for="(i,index) in allItem" class="singleItemPost" :key="index">
 					<div><img :src="i.itemSrc" alt="">{{i.itemName}}</div>
@@ -23,6 +24,7 @@
 				</div>
 			</div>
 			<div class="shopSide">
+				<div class="closeBtn" @click="showTable=false"><i class="fa-solid fa-xmark"></i></div>
 				<div class="shopTitle">購物車</div>
 				<div v-for="(i,index) in decisionArr" class="decisionList" :key="i">
 					<div><img :src="i.itemSrc" alt="">{{i.itemName}}</div>
@@ -47,7 +49,7 @@
 		const app = Vue.createApp({
         data() {          
           return {
-			
+			showTable:true,
 			allItem:[
 				{
 					itemSrc:'./hwImg/1.png',

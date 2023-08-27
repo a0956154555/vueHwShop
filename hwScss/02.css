@@ -11,7 +11,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  padding-top: 80px;
+  padding-top: 150px;
 }
 #app .outSizeBorder {
   width: 90%;
@@ -58,6 +58,18 @@
 #app .outSizeBorder .shopSide {
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+#app .outSizeBorder .shopSide .closeBtn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 20px;
+  background-color: white;
+  translate: 50% -50%;
+  padding: 2px 6px;
+  border-radius: 60%;
+  cursor: pointer;
 }
 #app .outSizeBorder .shopSide .shopTitle {
   background-color: rgba(50, 99, 235, 0.842);
