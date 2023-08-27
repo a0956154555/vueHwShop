@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./hwScss/02.css">
+	<title>Document</title>
+</head>
+<body>
+	
+	<div id="app">
+		<div class="outSizeBorder">
+			<div class="menuuSide">
+				<div v-for="(i,index) in allItem" class="singleItemPost" :key="index">
+					<div><img :src="i.itemSrc" alt="">{{i.itemName}}</div>
+					<div class="clickBtn">
+						<div @click="i.itemNum++">+</div>
+						<div>{{i.itemNum}}</div>
+						<div @click="decrementItem(index)">-</div>
+					</div>
+					<div class="finalBtn" @click="putInShop(i.itemSrc,i.itemName,i.price,i.itemNum,index)">加入結帳</div>
+				</div>
+			</div>
+			<div class="shopSide">
+				<div class="shopTitle">購物車</div>
+				<div v-for="(i,index) in decisionArr" class="decisionList" :key="i">
+					<div><img :src="i.itemSrc" alt="">{{i.itemName}}</div>
+					<div class="titleFz">共{{i.itemNum}}件</div> 
+					<div class="titleFz">${{i.itemPrice*i.itemNum}}</div>	
+					<div class="deleteBtn" @click="deleteSingleItem(index,i.itemPrice,i.itemNum)">刪除</div>	
+				</div>
+				<div v-if="decisionArr.length>0" class="shopMallPrice">
+					<div class="clearAll" @click="decisionArr = []">一鍵清空</div>
+					<div>目前金額 : <span class="shopRedTxt">{{allCountNum}}</span></div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://unpkg.com/vue@next"></script>
+	<script>
+		const app = Vue.createApp({
+        data() {          
+          return {
+			
+			allItem:[
+				{
+					itemSrc:'./hwImg/1.png',
+					itemName:'塔蘭特魔法長仗',
+					itemNum:0,
+					price:3000
+				},
+				{
+					itemSrc:'./hwImg/2.png',
+					itemName:'高貴的敦威志帽',
+					itemNum:0,
+					price:2000
+				},
+				{
+					itemSrc:'./hwImg/3.png',
+					itemName:'雷本魂獵人斗篷',
+					itemNum:0,
+					price:3500
+				},
+				{
+					itemSrc:'./hwImg/4.png',
+					itemName:'黃蜘蛛敦威智褲',
+					itemNum:0,
+					price:2800
+				},
+				{
+					itemSrc:'./hwImg/6.png',
+					itemName:'塔蘭特喀戎星靴',
+					itemNum:0,
+					price:1200
+				},
+				{
+					itemSrc:'./hwImg/7.png',
+					itemName:'塔蘭特喀戎星靴',
+					itemNum:0,
+					price:2350
+				},
+				{
+					itemSrc:'./hwImg/9.png',
+					itemName:'塔蘭特密士斗篷',
+					itemNum:0,
+					price:1350
+				},
+			],
+			decisionArr:[
+				
+			],
+			allCountNum:0
+		  };
+        },
+		methods: {
+    		incrementItem(index) {
+      			this.allItem[index].itemNum++;
+    		},
+    		decrementItem(index) {
+     			if (this.allItem[index].itemNum > 0) {
+       			this.allItem[index].itemNum--;
+      			}
+    		},
+			putInShop(src, name, price,num,index){
+				if(num !== 0){
+					const newItem = {
+					itemSrc: src,
+					itemName: name,
+					itemPrice: price,
+					itemNum:num
+				};
+				this.allCountNum += price*num
+				console.log(newItem)
+				this.decisionArr.push(newItem)
+				this.allItem[index].itemNum = 0;
+				}
+				
+			},
+			deleteSingleItem(index,price,num) {
+ 			 if (index >= 0 && index < this.decisionArr.length) {
+   				 this.decisionArr.splice(index, 1);
+				 this.allCountNum -=(price*num)
+  			 }
+			}
+  		}
+		
+      }).mount("#app");
+	</script>
+</body>
+</html>

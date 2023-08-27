@@ -1,0 +1,78 @@
+@import "_base";
+@import "_mixin";
+
+
+#app{
+	@include appCss();
+	.outSizeBorder{
+		@include outest();
+		.menuuSide,.shopSide{
+			@include shopInside();
+		}
+		.menuuSide{
+			.singleItemPost{
+				display: flex;
+				border-bottom: 1px black solid;
+				padding: 20px ;
+				justify-content: space-between;
+				align-items: center;
+				.clickBtn{
+					display: flex;
+					align-items: center;
+					div:nth-child(1),div:last-child{
+						margin: 0px 5px;
+						font-size: $titleSize ;
+						border: 1px black solid;
+						padding: 0px 5px;
+					}
+				}
+				.finalBtn{
+					@include finalBtnCss()
+				}
+			}
+			.singleItemPost:last-child{
+				border: none;
+			}
+		}
+		.shopSide{
+			display: flex;
+			flex-direction: column;
+			
+			.shopTitle{
+				background-color: rgba(50, 99, 235, 0.842);
+				color: white;
+				padding: 20px 0px;
+				display: flex;
+				justify-content: center;
+				font-size: $titleSize;
+				
+			}
+			.decisionList{
+				display: flex;
+				justify-content: space-between;
+				align-items: flex-start;
+				padding: 20px;
+				
+				border-bottom: 1px black solid;
+				.titleFz{
+					font-size: $titleSize;
+				}
+				.deleteBtn{
+					@include deleteBtnClick()
+				}
+			}
+			.shopMallPrice{
+				padding: 20px 50px;
+				display: flex;
+				justify-content: space-between;
+				.clearAll{
+					@include deleteBtnClick()
+				}
+				.shopRedTxt{
+					font-size: $titleSize ;
+					color: rgb(221, 128, 22);
+				}
+			}
+		}
+	}
+}

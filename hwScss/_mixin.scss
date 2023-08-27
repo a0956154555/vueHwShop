@@ -1,0 +1,44 @@
+@mixin outest(){
+	width: 90%;
+	// height: 90vh;
+	// border: 1px black solid;
+	margin:  auto;
+	display: flex;
+	background-color: white;
+	border-radius: 10px;
+	border: 2px rgb(87, 86, 86) solid;
+}
+
+@mixin shopInside(){
+	width: 50%;
+	height: 100%;
+	// border: 1px red solid;
+	border-right: 1px black solid;
+	// border-top: 1px black solid;
+	
+}
+@mixin appCss(){
+	width: 100%;
+	height: 100vh;
+	background-image: url(../hwImg/bkc1.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: contain;
+	padding-top: 80px;
+	
+}
+
+@mixin finalBtnCss(){
+	border: 1px black solid;
+	padding: 5px;
+	border-radius: 5px;
+	background-color: rgb(66, 224, 79);
+	color: white;
+	
+}
+@mixin deleteBtnClick(){
+	// border: 1px black solid;
+	padding: 5px;
+	font-size: 14px;
+	color: gray;
+}
