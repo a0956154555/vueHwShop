@@ -11,6 +11,7 @@
 <body>
 	
 	<div id="app">
+	
 		<div class="outSizeBorder" @mousedown.left="moveSide()" v-if="showTable">
 			<div class="menuuSide">
 				<div v-for="(i,index) in allItem" class="singleItemPost" :key="index">
