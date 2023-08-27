@@ -27,9 +27,9 @@
 				<div v-for="(i,index) in decisionArr" class="decisionList" :key="i">
 					<div><img :src="i.itemSrc" alt="">{{i.itemName}}</div>
 					<div class="titleFz">
-						<span class="chooseNum">+</span>
+						<span class="chooseNum" @click="plusItemCount(index)">+</span>
 						<span >共{{i.itemNum}}件</span>
-						<span class="chooseNum">-</span>
+						<span class="chooseNum" @click="minusItemCount(index)">-</span>
 					</div> 
 					<div class="titleFz">${{i.itemPrice*i.itemNum}}</div>	
 					<div class="deleteBtn" @click="deleteSingleItem(index,i.itemPrice,i.itemNum)">刪除</div>	
@@ -124,6 +124,26 @@
 				this.allItem[index].itemNum = 0;
 				}
 				
+			},
+			plusItemCount(index){
+				 // 增加 itemNum
+  					this.decisionArr[index].itemNum += 1;
+
+				 // 增加 itemPrice 只一次
+				 alert(his.decisionArr[index].itemPrice)
+					this.decisionArr[index].itemPrice += this.allItem[index].price;
+			},
+			minusItemCount(index) {
+					// 减少 itemNum
+					this.decisionArr[index].itemNum -= 1;
+
+					// 减少 itemPrice 只一次
+					this.decisionArr[index].itemPrice -= this.allItem[index].price;
+					
+					// 如果 itemNum 减少后为 0，则从数组中删除
+					if (this.decisionArr[index].itemNum === 0) {
+						this.decisionArr.splice(index, 1);
+					}
 			},
 			deleteSingleItem(index,price,num) {
  			 if (index >= 0 && index < this.decisionArr.length) {
