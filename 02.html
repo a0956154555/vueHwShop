@@ -27,9 +27,9 @@
 				<div v-for="(i,index) in decisionArr" class="decisionList" :key="i">
 					<div><img :src="i.itemSrc" alt="">{{i.itemName}}</div>
 					<div class="titleFz">
-						<span class="chooseNum" @click="plusItemCount(index)">+</span>
+						<!-- <span class="chooseNum" @click="plusItemCount(index)">+</span> -->
 						<span >共{{i.itemNum}}件</span>
-						<span class="chooseNum" @click="minusItemCount(index)">-</span>
+						<!-- <span class="chooseNum" @click="minusItemCount(index)">-</span> -->
 					</div> 
 					<div class="titleFz">${{i.itemPrice*i.itemNum}}</div>	
 					<div class="deleteBtn" @click="deleteSingleItem(index,i.itemPrice,i.itemNum)">刪除</div>	
