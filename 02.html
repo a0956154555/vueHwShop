@@ -130,7 +130,7 @@
   					this.decisionArr[index].itemNum += 1;
 
 				 // 增加 itemPrice 只一次
-				 alert(his.decisionArr[index].itemPrice)
+				 alert(this.allItem[index].price)
 					this.decisionArr[index].itemPrice += this.allItem[index].price;
 			},
 			minusItemCount(index) {
@@ -138,6 +138,7 @@
 					this.decisionArr[index].itemNum -= 1;
 
 					// 减少 itemPrice 只一次
+					alert(this.allItem[index].price)
 					this.decisionArr[index].itemPrice -= this.allItem[index].price;
 					
 					// 如果 itemNum 减少后为 0，则从数组中删除
