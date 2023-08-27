@@ -10,7 +10,7 @@
 <body>
 	
 	<div id="app">
-		<div class="outSizeBorder">
+		<div class="outSizeBorder" @mousedown.left="moveSide()">
 			<div class="menuuSide">
 				<div v-for="(i,index) in allItem" class="singleItemPost" :key="index">
 					<div><img :src="i.itemSrc" alt="">{{i.itemName}}</div>
@@ -26,7 +26,11 @@
 				<div class="shopTitle">購物車</div>
 				<div v-for="(i,index) in decisionArr" class="decisionList" :key="i">
 					<div><img :src="i.itemSrc" alt="">{{i.itemName}}</div>
-					<div class="titleFz">共{{i.itemNum}}件</div> 
+					<div class="titleFz">
+						<span class="chooseNum">+</span>
+						<span >共{{i.itemNum}}件</span>
+						<span class="chooseNum">-</span>
+					</div> 
 					<div class="titleFz">${{i.itemPrice*i.itemNum}}</div>	
 					<div class="deleteBtn" @click="deleteSingleItem(index,i.itemPrice,i.itemNum)">刪除</div>	
 				</div>
@@ -91,7 +95,10 @@
 			decisionArr:[
 				
 			],
-			allCountNum:0
+			allCountNum:0,
+			isDragging:false,
+			offsetX:0,
+			offsetY:0
 		  };
         },
 		methods: {
@@ -123,6 +130,12 @@
    				 this.decisionArr.splice(index, 1);
 				 this.allCountNum -=(price*num)
   			 }
+			},
+			moveSide(e){
+				this.isDragging = true;
+				this.offsetX = e.clientX - movableObject.getBoundingClientRect().left;
+  				this.offsetY = e.clientY - movableObject.getBoundingClientRect().top;
+				alert(123)
 			}
   		}
 		

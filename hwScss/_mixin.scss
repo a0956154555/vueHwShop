@@ -23,7 +23,7 @@
 	background-image: url(../hwImg/bkc1.jpg);
 	background-position: center;
 	background-repeat: no-repeat;
-	background-size: cover;
+	background-size: 100% 100%;
 	padding-top: 80px;
 	
 }
@@ -34,6 +34,7 @@
 	border-radius: 5px;
 	background-color: rgb(66, 224, 79);
 	color: white;
+	cursor: pointer;
 	
 }
 @mixin deleteBtnClick(){
@@ -41,4 +42,12 @@
 	padding: 5px;
 	font-size: 14px;
 	color: gray;
+	cursor: pointer;
+}
+@mixin plusAndCount(){
+	margin: 0px 5px;
+	font-size: $titleSize ;
+	border: 1px black solid;
+	padding: 0px 5px;
+	cursor: pointer;
 }

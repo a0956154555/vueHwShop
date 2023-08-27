@@ -10,7 +10,7 @@
   background-image: url(../hwImg/bkc1.jpg);
   background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% 100%;
   padding-top: 80px;
 }
 #app .outSizeBorder {
@@ -42,6 +42,7 @@
   font-size: 20px;
   border: 1px black solid;
   padding: 0px 5px;
+  cursor: pointer;
 }
 #app .outSizeBorder .menuuSide .singleItemPost .finalBtn {
   border: 1px black solid;
@@ -49,6 +50,7 @@
   border-radius: 5px;
   background-color: rgb(66, 224, 79);
   color: white;
+  cursor: pointer;
 }
 #app .outSizeBorder .menuuSide .singleItemPost:last-child {
   border: none;
@@ -75,10 +77,22 @@
 #app .outSizeBorder .shopSide .decisionList .titleFz {
   font-size: 20px;
 }
+#app .outSizeBorder .shopSide .decisionList .titleFz span {
+  margin: 0px 5px;
+  font-size: 20px;
+}
+#app .outSizeBorder .shopSide .decisionList .titleFz .chooseNum {
+  margin: 0px 5px;
+  font-size: 20px;
+  border: 1px black solid;
+  padding: 0px 5px;
+  cursor: pointer;
+}
 #app .outSizeBorder .shopSide .decisionList .deleteBtn {
   padding: 5px;
   font-size: 14px;
   color: gray;
+  cursor: pointer;
 }
 #app .outSizeBorder .shopSide .shopMallPrice {
   padding: 20px 50px;
@@ -89,6 +103,7 @@
   padding: 5px;
   font-size: 14px;
   color: gray;
+  cursor: pointer;
 }
 #app .outSizeBorder .shopSide .shopMallPrice .shopRedTxt {
   font-size: 20px;
